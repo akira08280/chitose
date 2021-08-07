@@ -1,0 +1,13 @@
+name: onawave
+version: 1.0.0
+description: >-
+  TODO  
+homepage: https://akira.08280.com
+documentation:
+environment:
+  sdk: '>=2.13.0 <3.0.0'
+dev_dependencies: 
+  lints: ^1.0.1
+  test: ^1.17.10
+dependencies: 
+  collection: ^1.15.0
