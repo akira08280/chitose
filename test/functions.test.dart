@@ -69,4 +69,33 @@ void main() {
       expect(deepEq(actualLeft, expectDifferentLeft), false);
     });
   });
+
+  group('perms()', () {
+    test('This test is for the perms function by an simple type list.', () {
+      List<int> orig = [1, 2, 3];
+      List<List<int>> expectRightPerms = [[1, 2, 3], [2, 1, 3], [2, 3, 1], [1, 3, 2], [3, 1, 2], [3, 2, 1]];
+      List<List<int>> expectDifferentPerms = [[1, 2, 3], [2, 1, 3], [2, 3, 1], [1, 3, 2], [3, 1, 2], [3, 1, 2]];
+      List<List<int>> actualPerms = orig.perms();
+
+      expect(eq(orig, []), false);
+      expect(eq(orig, null), false);
+      expect(eq(orig, [3, 2, 1]), false);
+      expect(eq(orig, [1, 2, 3]), true);
+      expect(deepEq(actualPerms, expectRightPerms), true);
+      expect(deepEq(actualPerms, expectDifferentPerms), false);
+    });
+    test('This test is for the perms function by an multiple type list.', () {
+      List<dynamic> orig = [1, 2, 'a'];
+      List<List<dynamic>> expectRightPerms = [[1, 2, 'a'], [2, 1, 'a'], [2, 'a', 1], [1, 'a', 2], ['a', 1, 2], ['a', 2, 1]];
+      List<List<dynamic>> expectDifferentPerms = [[1, 2, 'a'], [2, 1, 'a'], [2, 'a', 1], [1, 'a', 2], ['a', 1, 2], ['a', 1, 2]];
+      List<List<dynamic>> actualPerms = orig.perms();
+
+      expect(eq(orig, []), false);
+      expect(eq(orig, null), false);
+      expect(eq(orig, ['a', 2, 1]), false);
+      expect(eq(orig, [1, 2, 'a']), true);
+      expect(deepEq(actualPerms, expectRightPerms), true);
+      expect(deepEq(actualPerms, expectDifferentPerms), false);
+    });
+  });
 }

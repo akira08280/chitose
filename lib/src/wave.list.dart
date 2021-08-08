@@ -36,6 +36,21 @@ extension WaveList<T> on List<T> {
   }
 
   /// TODO Comment
+  List<List<T>> perms() {
+    return this._perms([...this]);
+  }
+
+  /// TODO Comment
+  List<List<T>> _perms(List<T> xss) {
+    if(xss.length == 0) {
+      return [[]];
+    }
+    T x = xss[0];
+    List<T> xs = xss.sublist(1);
+    return _perms(xs).map((e) => e.interleave(x)).expand((e) => e).toList().cast<List<T>>();
+  }
+
+  /// TODO Comment
   List<List<T>> _copy(List<List<T>> original) {
     return original
       .map((e) => List.from(e).cast<T>())
