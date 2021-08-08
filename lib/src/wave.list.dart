@@ -1,4 +1,4 @@
-extension OnAWaveList<T> on List<T> {
+extension WaveList<T> on List<T> {
 
   /// TODO Comment
   List<List<T>> subs() {
@@ -17,17 +17,23 @@ extension OnAWaveList<T> on List<T> {
     return [...copied, ...yss];
   }
 
-  /*
   /// TODO Comment
   List<List<T>> interleave(T x) {
-    this._interleave(x)
+    return this._interleave(x, [...this]);
   }
 
   /// TODO Comment
   List<List<T>> _interleave(T x, List<T> yss) {
-    
+    if(yss.length == 0) {
+      return [[x]];
+    }
+    T y = yss[0];
+    List<T> ys = yss.sublist(1);
+    List<List<T>> left = _interleave(x, ys);
+    left.forEach((e) => e.insert(0, y));
+    yss.insert(0, x);
+    return [...[yss], ...left];
   }
-  */
 
   /// TODO Comment
   List<List<T>> _copy(List<List<T>> original) {
