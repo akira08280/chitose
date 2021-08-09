@@ -1,1 +1,1 @@
-export 'src/chitose.list.dart';
+export 'src/list.extensions.dart';

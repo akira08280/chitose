@@ -1,4 +1,4 @@
-extension ChitoseList<T> on List<T> {
+extension ListExtensions<T> on List<T> {
 
   /// TODO Comment
   List<List<T>> subs() {
@@ -18,6 +18,8 @@ extension ChitoseList<T> on List<T> {
         .cast<List<T>>();
     return [...yss, ...inserted];
   }
+
+
 
   /// TODO Comment
   List<List<T>> interleave(T x) {
