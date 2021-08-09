@@ -10,11 +10,13 @@ extension ChitoseList<T> on List<T> {
     if(xss.length == 0) {
       return [[]];
     }
-    T x = xss.removeAt(0);
+    final T x = xss.removeAt(0);
     final List<List<T>> yss = _subs(xss);
-    final List<List<T>> copied = _copy(yss);
-    yss.forEach((e) => e.insert(0, x));
-    return [...copied, ...yss];
+    final List<List<T>> inserted = yss
+        .map((e) => [...[x], ...e])
+        .toList()
+        .cast<List<T>>();
+    return [...yss, ...inserted];
   }
 
   /// TODO Comment
@@ -27,12 +29,15 @@ extension ChitoseList<T> on List<T> {
     if(yss.length == 0) {
       return [[x]];
     }
-    T y = yss[0];
-    List<T> ys = yss.sublist(1);
-    List<List<T>> left = _interleave(x, ys);
-    left.forEach((e) => e.insert(0, y));
+    final T y = yss[0];
+    final List<List<T>> zss = _interleave(x, yss.sublist(1));
+    final List<List<T>> inserted = zss
+        .map((e) => [...[y], ...e])
+        .toList()
+        .cast<List<T>>();
+
     yss.insert(0, x);
-    return [...[yss], ...left];
+    return [...[yss], ...inserted];
   }
 
   /// TODO Comment
@@ -68,13 +73,5 @@ extension ChitoseList<T> on List<T> {
         .map((e1) => xss.map((e2) => [...e1, ...[e2]]))
         .expand((e) => e)
         .toList();
-  }
-
-  /// TODO Comment
-  List<List<T>> _copy(List<List<T>> orig) {
-    return orig
-        .map((e) => List.from(e).cast<T>())
-        .toList()
-        .cast<List<T>>();
   }
 }
