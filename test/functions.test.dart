@@ -98,4 +98,9 @@ void main() {
       expect(deepEq(actualPerms, expectDifferentPerms), false);
     });
   });
+
+  group('product()', () {
+    test('This test is for the product function by an simple type list.', () {
+    });
+  });
 }

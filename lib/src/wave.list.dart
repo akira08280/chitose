@@ -47,14 +47,34 @@ extension WaveList<T> on List<T> {
     }
     T x = xss[0];
     List<T> xs = xss.sublist(1);
-    return _perms(xs).map((e) => e.interleave(x)).expand((e) => e).toList().cast<List<T>>();
+    return _perms(xs)
+        .map((e) => e.interleave(x))
+        .expand((e) => e)
+        .toList()
+        .cast<List<T>>();
   }
 
   /// TODO Comment
-  List<List<T>> _copy(List<List<T>> original) {
-    return original
-      .map((e) => List.from(e).cast<T>())
-      .toList()
-      .cast<List<T>>();
+  List<List<T>> product(int repeat) {
+    return _product([...this], repeat);
+  }
+
+  /// TODO Comment
+  List<List<T>> _product(List<T> xss, int repeat) {
+    if (repeat == 0) {
+      return [[]];
+    }
+    return _product(xss, repeat - 1)
+        .map((e1) => xss.map((e2) => [...e1, ...[e2]]))
+        .expand((e) => e)
+        .toList();
+  }
+
+  /// TODO Comment
+  List<List<T>> _copy(List<List<T>> orig) {
+    return orig
+        .map((e) => List.from(e).cast<T>())
+        .toList()
+        .cast<List<T>>();
   }
 }
