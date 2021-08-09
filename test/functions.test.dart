@@ -1,6 +1,6 @@
 import 'dart:math';
 import 'package:test/test.dart';
-import 'package:onawave/onawave.dart';
+import 'package:chitose/chitose.dart';
 import 'package:collection/collection.dart';
 
 void main() {

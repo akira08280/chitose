@@ -1,4 +1,4 @@
-extension WaveList<T> on List<T> {
+extension ChitoseList<T> on List<T> {
 
   /// TODO Comment
   List<List<T>> subs() {
