@@ -1,4 +1,4 @@
-import 'package:chitose/collection.dart';
+import 'package:chitose/chitose.dart';
 import 'package:collection/collection.dart';
 import 'package:test/test.dart';
 import 'dart:math';

@@ -7,7 +7,7 @@ Chitose is a package that makes it easy to handle the List of Dart Core, which i
 You can easily use the Chitose library by designated the following import statement.
 
 ```dart
-import 'package:chitose/collection.dart';
+import 'package:chitose/chitose.dart';
 ```
 ## Examples
 
