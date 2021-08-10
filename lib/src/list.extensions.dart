@@ -12,14 +12,9 @@ extension ListExtensions<T> on List<T> {
     }
     final T x = xss.removeAt(0);
     final List<List<T>> yss = _subs(xss);
-    final List<List<T>> inserted = yss
-        .map((e) => [...[x], ...e])
-        .toList()
-        .cast<List<T>>();
+    final List<List<T>> inserted = yss.map((e) => [...[x], ...e]).toList();
     return [...yss, ...inserted];
   }
-
-
 
   /// TODO Comment
   List<List<T>> interleave(T x) {
@@ -33,11 +28,7 @@ extension ListExtensions<T> on List<T> {
     }
     final T y = yss[0];
     final List<List<T>> zss = _interleave(x, yss.sublist(1));
-    final List<List<T>> inserted = zss
-        .map((e) => [...[y], ...e])
-        .toList()
-        .cast<List<T>>();
-
+    final List<List<T>> inserted = zss.map((e) => [...[y], ...e]).toList();
     yss.insert(0, x);
     return [...[yss], ...inserted];
   }
@@ -54,11 +45,7 @@ extension ListExtensions<T> on List<T> {
     }
     T x = xss[0];
     List<T> xs = xss.sublist(1);
-    return _perms(xs)
-        .map((e) => e.interleave(x))
-        .expand((e) => e)
-        .toList()
-        .cast<List<T>>();
+    return _perms(xs).map((e) => e.interleave(x)).expand((e) => e).toList();
   }
 
   /// TODO Comment
@@ -71,9 +58,6 @@ extension ListExtensions<T> on List<T> {
     if (repeat == 0) {
       return [[]];
     }
-    return _product(xss, repeat - 1)
-        .map((e1) => xss.map((e2) => [...e1, ...[e2]]))
-        .expand((e) => e)
-        .toList();
+    return _product(xss, repeat - 1).map((e1) => xss.map((e2) => [...e1, ...[e2]])).expand((e) => e).toList();
   }
 }
