@@ -1,11 +1,27 @@
 extension ListExtensions<T> on List<T> {
 
-  /// TODO Comment
+  /// Returns the all partial list of the list.
+  ///
+  /// ```dart
+  /// [].subs();
+  /// [[]]
+  /// ```
+  /// ```dart
+  /// [3].subs();
+  /// [[], [3]]
+  /// ```
+  /// ```dart
+  /// [2, 3].subs();
+  /// [[], [3], [2], [2, 3]]
+  /// ```
+  /// ```dart
+  /// [1, 2, 3].subs();
+  /// [[], [3], [2], [2, 3], [1], [1, 3], [1, 2], [1, 2, 3]]
+  /// ```
   List<List<T>> subs() {
     return this._subs([...this]);
   }
 
-  /// TODO Comment
   List<List<T>> _subs(List<T> xss) {
     if(xss.length == 0) {
       return [[]];
@@ -16,12 +32,28 @@ extension ListExtensions<T> on List<T> {
     return [...yss, ...inserted];
   }
 
-  /// TODO Comment
+  /// Returns all the ways to insert a new element into a list.
+  ///
+  /// ```dart
+  /// [].interleave(1);
+  /// [[1]]
+  /// ```
+  /// ```dart
+  /// [3].interleave(1);
+  /// [[1, 4], [4, 1]]
+  /// ```
+  /// ```dart
+  /// [3, 4].interleave(1);
+  /// [[1, 3, 4], [3, 1, 4], [3, 4, 1]]
+  /// ```
+  /// ```dart
+  /// [2, 3, 4].interleave(1);
+  /// [[1, 2, 3, 4], [2, 1, 3, 4], [2, 3, 1, 4], [2, 3, 4, 1]]
+  /// ```
   List<List<T>> interleave(T x) {
     return this._interleave(x, [...this]);
   }
 
-  /// TODO Comment
   List<List<T>> _interleave(T x, List<T> yss) {
     if(yss.length == 0) {
       return [[x]];
@@ -33,12 +65,28 @@ extension ListExtensions<T> on List<T> {
     return [...[yss], ...inserted];
   }
 
-  /// TODO Comment
+  /// Returns all the permutation of a list.
+  ///
+  /// ```dart
+  /// [].perms();
+  /// [[]]
+  /// ```
+  /// ```dart
+  /// [3].perms();
+  /// [[3]]
+  /// ```
+  /// ```dart
+  /// [2, 3].perms();
+  /// [[2, 3], [3, 2]]
+  /// ```
+  /// ```dart
+  /// [1, 2, 3].perms();
+  /// [[1, 2, 3], [2, 1, 3], [2, 3, 1], [1, 3, 2], [3, 1, 2], [3, 2, 1]]
+  /// ```
   List<List<T>> perms() {
     return this._perms([...this]);
   }
 
-  /// TODO Comment
   List<List<T>> _perms(List<T> xss) {
     if(xss.length == 0) {
       return [[]];
@@ -48,12 +96,22 @@ extension ListExtensions<T> on List<T> {
     return _perms(xs).map((e) => e.interleave(x)).expand((e) => e).toList();
   }
 
-  /// TODO Comment
+  /// Returns all the Cartesian product of a list. 
+  /// 
+  /// Specify the number of repetitions as the argument. If specified the argument under the 0, returns the empty list of a list.
+  ///
+  /// ```dart
+  /// [1, 2, 3].product(2);
+  /// [[1, 1], [1, 2], [1, 3], [2, 1], [2, 2], [2, 3], [3, 1], [3, 2], [3, 3]]
+  /// ```
+  /// ```dart
+  /// [1, 2, 3].product(-1);
+  /// [[]]
+  /// ```
   List<List<T>> product(int repeat) {
     return _product([...this], repeat);
   }
 
-  /// TODO Comment
   List<List<T>> _product(List<T> xss, int repeat) {
     if (repeat <= 0) {
       return [[]];

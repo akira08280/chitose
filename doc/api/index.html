@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="generator" content="made with love by dartdoc 1.0.2">
+  <meta name="description" content="chitose API docs, for the Dart programming language.">
+  <title>chitose - Dart API docs</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href=""
+      data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="https://github.com/akira08280/chitose">chitose package</a></li>
+  </ol>
+  <div class="self-name">chitose</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+
+  <div id="dartdoc-main-content" class="main-content">
+      
+<section class="desc markdown">
+  <h1 id="chitose">chitose</h1>
+<p>Chitose is a package that makes it easy to handle Dart Lists, which are implemented inspired by Programming Haskell. It generates permutation, product, sublist of arrays.
+The origin of the name of Chitose is a surf point located in the south of Chiba prefecture in Japan, which is one of the author's favorite locations.</p>
+<h2 id="usage">USAGE</h2>
+<p>You can easily use the Chitose library by designated the following import statement.</p>
+<pre class="language-dart"><code class="language-dart">import 'package:chitose/chitose.dart';
+</code></pre>
+<h2 id="examples">Examples</h2>
+<h3 id="how-to-generate-all-sublists-of-a-list">How to generate all sublists of a list</h3>
+<p>If you want all sublists of your list, it is available to the subs function implemented in the list extension.</p>
+<pre class="language-dart"><code class="language-dart">[1,2,3].subs();
+</code></pre>
+<p>The result is,</p>
+<pre class="language-dart"><code class="language-dart">[[], [3], [2], [2, 3], [1], [1, 3], [1, 2], [1, 2, 3]]
+</code></pre>
+<h3 id="how-to-generate-all-permutations-of-a-list">How to generate all permutations of a list</h3>
+<p>If you want all permutationss of your list, it is available to the perms function implemented in the list extension.</p>
+<pre class="language-dart"><code class="language-dart">[1,2,3].perms();
+</code></pre>
+<p>The result is,</p>
+<pre class="language-dart"><code class="language-dart">[[1, 2, 3], [2, 1, 3], [2, 3, 1], [1, 3, 2], [3, 1, 2], [3, 2, 1]]
+</code></pre>
+<h3 id="how-to-generate-the-cartesian-product-of-a-list">How to generate the Cartesian product of a list</h3>
+<p>If you want to get the Cartesian product of a list, you can use the product function. Specify the number of repetitions as the argument.</p>
+<pre class="language-dart"><code class="language-dart">[1,2,3].product(4);
+</code></pre>
+<p>The result is,</p>
+<pre class="language-dart"><code class="language-dart">[[1, 1, 1, 1], [1, 1, 1, 2], [1, 1, 1, 3], [1, 1, 2, 1], ... [3, 3, 2, 3], [3, 3, 3, 1], [3, 3, 3, 2], [3, 3, 3, 3]]
+</code></pre>
+<h2 id="note">Note</h2>
+<h3 id="memory-footprint">Memory Footprint</h3>
+<p>As of August 2021, the generated result in the middle is expanded to the memory. It should be implemented by the generator and return the result one by one, but it is not supported. Because Programming Haskell inspires this library, Haskell supports lazy evaluation as a language specification. On the other hand, in Dart, it is necessary to change thinking to procedural to realize it with the generator.</p>
+</section>
+
+
+      <section class="summary">
+          <h2>Libraries</h2>
+        <dl>
+          <dt id="chitose">
+  <span class="name"><a href="chitose/chitose-library.html">chitose</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+        </dl>
+      </section>
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li><a href="https://github.com/akira08280/chitose">chitose package</a></li>
+</ol>
+
+
+    <h5 class="hidden-xs"><span class="package-name">chitose</span> <span class="package-kind">package</span></h5>
+    <ol>
+      <li class="section-title">Libraries</li>
+      <li><a href="chitose/chitose-library.html">chitose</a></li>
+</ol>
+
+  </div>
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div>
+
+</main>
+
+<footer>
+  <span class="no-break">
+    chitose
+      1.0.0
+  </span>
+
+  
+</footer>
+
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/script.js?v1"></script>
+
+
+
+</body>
+
+</html>
+
