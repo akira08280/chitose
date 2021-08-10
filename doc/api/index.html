@@ -45,11 +45,10 @@
       
 <section class="desc markdown">
   <h1 id="chitose">chitose</h1>
-<p>Chitose is a package that makes it easy to handle Dart Lists, which are implemented inspired by Programming Haskell. It generates permutation, product, sublist of arrays.
-The origin of the name of Chitose is a surf point located in the south of Chiba prefecture in Japan, which is one of the author's favorite locations.</p>
+<p>Chitose is a package that makes it easy to handle the List of Dart Core, which is implemented inspired by Programming Haskell. It generates permutation, product, sublist of arrays. The origin of the name of Chitose is a surf point located in the south of Chiba prefecture in Japan, which is one of the author's favorite locations.</p>
 <h2 id="usage">USAGE</h2>
 <p>You can easily use the Chitose library by designated the following import statement.</p>
-<pre class="language-dart"><code class="language-dart">import 'package:chitose/chitose.dart';
+<pre class="language-dart"><code class="language-dart">import 'package:chitose/collection.dart';
 </code></pre>
 <h2 id="examples">Examples</h2>
 <h3 id="how-to-generate-all-sublists-of-a-list">How to generate all sublists of a list</h3>
@@ -75,18 +74,22 @@ The origin of the name of Chitose is a surf point located in the south of Chiba 
 </code></pre>
 <h2 id="note">Note</h2>
 <h3 id="memory-footprint">Memory Footprint</h3>
-<p>As of August 2021, the generated result in the middle is expanded to the memory. It should be implemented by the generator and return the result one by one, but it is not supported. Because Programming Haskell inspires this library, Haskell supports lazy evaluation as a language specification. On the other hand, in Dart, it is necessary to change thinking to procedural to realize it with the generator.</p>
+<p>As of August 2021, the generated result in the middle is expanded to the memory. The package should implement the generator of Dart the result and return it one by one, but it is not supported as of 2021 August. Because Programming Haskell inspires this library, Haskell supports lazy evaluation as a language specification. On the other hand, in Dart, it is necessary to change thinking to procedural to realize it with the generator.</p>
+<h3 id="performance">Performance</h3>
+<p>Due to the memory footprint described above, there are concerns that you can not get high performance for large arrays. It is supposed to be improved in the future.</p>
+<h2 id="release-notes">Release notes</h2>
+<p>Please see the CHANGELOG</p>
 </section>
 
 
       <section class="summary">
           <h2>Libraries</h2>
         <dl>
-          <dt id="chitose">
-  <span class="name"><a href="chitose/chitose-library.html">chitose</a></span> 
+          <dt id="collection">
+  <span class="name"><a href="collection/collection-library.html">collection</a></span> 
 
 </dt>
-<dd> 
+<dd>A library that extends Dart's List API to make it easier to work with arrays. We can use it to realize complex algorithms. 
 </dd>
 
         </dl>
@@ -109,7 +112,7 @@ The origin of the name of Chitose is a surf point located in the south of Chiba 
     <h5 class="hidden-xs"><span class="package-name">chitose</span> <span class="package-kind">package</span></h5>
     <ol>
       <li class="section-title">Libraries</li>
-      <li><a href="chitose/chitose-library.html">chitose</a></li>
+      <li><a href="collection/collection-library.html">collection</a></li>
 </ol>
 
   </div>

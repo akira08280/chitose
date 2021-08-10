@@ -1,4 +1,4 @@
-import 'package:chitose/chitose.dart';
+import 'package:chitose/collection.dart';
 
 void main() {
 
