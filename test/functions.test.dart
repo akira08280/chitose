@@ -101,6 +101,37 @@ void main() {
 
   group('product()', () {
     test('This test is for the product function by an simple type list.', () {
+      List<int> orig = [1, 2, 3];
+      List<List<int>> expectRightProduct = [[1, 1], [1, 2], [1, 3], [2, 1], [2, 2], [2, 3], [3, 1], [3, 2], [3, 3]];
+      List<List<int>> expectDifferentProduct = [[1, 1], [1, 2], [1, 3], [2, 1], [2, 2], [2, 3], [3, 1], [3, 3], [3, 2]];
+      List<List<int>> actualProduct = orig.product(2);
+
+      expect(eq(orig, []), false);
+      expect(eq(orig, null), false);
+      expect(eq(orig, [3, 2, 1]), false);
+      expect(eq(orig, [1, 2, 3]), true);
+      expect(deepEq(actualProduct, expectRightProduct), true);
+      expect(deepEq(actualProduct, expectDifferentProduct), false);
+    });
+    test('This test is for the product function by an multiple type list.', () {
+      List<dynamic> orig = [1, 2, 'a'];
+      List<List<dynamic>> expectRightProduct = [[1, 1], [1, 2], [1, 'a'], [2, 1], [2, 2], [2, 'a'], ['a', 1], ['a', 2], ['a', 'a']];
+      List<List<dynamic>> expectDifferentProduct = [[1, 1], [1, 2], [1, 'a'], [2, 1], [2, 2], [2, 'a'], ['a', 1], ['a', 'a'], ['a', 2]];
+      List<List<dynamic>> actualProduct = orig.product(2);
+
+      expect(eq(orig, []), false);
+      expect(eq(orig, null), false);
+      expect(eq(orig, ['a', 2, 1]), false);
+      expect(eq(orig, [1, 2, 'a']), true);
+      expect(deepEq(actualProduct, expectRightProduct), true);
+      expect(deepEq(actualProduct, expectDifferentProduct), false);
+    });
+    test('This test is the check for when an argument is under 0.', () {
+      expect(deepEq([1, 2, 3].product(0), [[]]), true);
+      expect(deepEq([1, 2, 3].product(-1), [[]]), true);
+      expect(deepEq([1, 2, 3].product(-9), [[]]), true);
+      expect(deepEq([1, 2, 3].product(1), [[]]), false);
+      expect(deepEq([1, 2, 3].product(9), [[]]), false);
     });
   });
 }
