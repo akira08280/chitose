@@ -1,5 +1,4 @@
 extension ListExtensions<T> on List<T> {
-
   /// Returns the all partial list of the list.
   ///
   /// ```dart
@@ -23,12 +22,17 @@ extension ListExtensions<T> on List<T> {
   }
 
   List<List<T>> _subs(List<T> xss) {
-    if(xss.length == 0) {
+    if (xss.length == 0) {
       return [[]];
     }
     final T x = xss.removeAt(0);
     final List<List<T>> yss = _subs(xss);
-    final List<List<T>> inserted = yss.map((e) => [...[x], ...e]).toList();
+    final List<List<T>> inserted = yss
+        .map((e) => [
+              ...[x],
+              ...e
+            ])
+        .toList();
     return [...yss, ...inserted];
   }
 
@@ -55,14 +59,24 @@ extension ListExtensions<T> on List<T> {
   }
 
   List<List<T>> _interleave(T x, List<T> yss) {
-    if(yss.length == 0) {
-      return [[x]];
+    if (yss.length == 0) {
+      return [
+        [x]
+      ];
     }
     final T y = yss[0];
     final List<List<T>> zss = _interleave(x, yss.sublist(1));
-    final List<List<T>> inserted = zss.map((e) => [...[y], ...e]).toList();
+    final List<List<T>> inserted = zss
+        .map((e) => [
+              ...[y],
+              ...e
+            ])
+        .toList();
     yss.insert(0, x);
-    return [...[yss], ...inserted];
+    return [
+      ...[yss],
+      ...inserted
+    ];
   }
 
   /// Returns all the permutation of a list.
@@ -88,7 +102,7 @@ extension ListExtensions<T> on List<T> {
   }
 
   List<List<T>> _perms(List<T> xss) {
-    if(xss.length == 0) {
+    if (xss.length == 0) {
       return [[]];
     }
     T x = xss[0];
@@ -96,8 +110,8 @@ extension ListExtensions<T> on List<T> {
     return _perms(xs).map((e) => e.interleave(x)).expand((e) => e).toList();
   }
 
-  /// Returns all the Cartesian product of a list. 
-  /// 
+  /// Returns all the Cartesian product of a list.
+  ///
   /// Specify the number of repetitions as the argument. If specified the argument under the 0, returns the empty list of a list.
   ///
   /// ```dart
@@ -116,6 +130,12 @@ extension ListExtensions<T> on List<T> {
     if (repeat <= 0) {
       return [[]];
     }
-    return _product(xss, repeat - 1).map((e1) => xss.map((e2) => [...e1, ...[e2]])).expand((e) => e).toList();
+    return _product(xss, repeat - 1)
+        .map((e1) => xss.map((e2) => [
+              ...e1,
+              ...[e2]
+            ]))
+        .expand((e) => e)
+        .toList();
   }
 }
