@@ -1,7 +1,6 @@
 # chitose
 
-Chitose is a package that makes it easy to handle Dart Lists, which are implemented inspired by Programming Haskell. It generates permutation, product, sublist of arrays.
-The origin of the name of Chitose is a surf point located in the south of Chiba prefecture in Japan, which is one of the author's favorite locations.
+Chitose is a package that makes it easy to handle the List of Dart Core, which is implemented inspired by Programming Haskell. It generates permutation, product, sublist of arrays. The origin of the name of Chitose is a surf point located in the south of Chiba prefecture in Japan, which is one of the author's favorite locations.
 
 ## USAGE
 
@@ -58,5 +57,12 @@ The result is,
 
 ### Memory Footprint
 
-As of August 2021, the generated result in the middle is expanded to the memory. It should be implemented by the generator and return the result one by one, but it is not supported. Because Programming Haskell inspires this library, Haskell supports lazy evaluation as a language specification. On the other hand, in Dart, it is necessary to change thinking to procedural to realize it with the generator.
+As of August 2021, the generated result in the middle is expanded to the memory. The package should implement the generator of Dart the result and return it one by one, but it is not supported as of 2021 August. Because Programming Haskell inspires this library, Haskell supports lazy evaluation as a language specification. On the other hand, in Dart, it is necessary to change thinking to procedural to realize it with the generator.
 
+### Performance
+
+Due to the memory footprint described above, there are concerns that you can not get high performance for large arrays. It is supposed to be improved in the future.
+
+## Release notes
+
+Please see the CHANGELOG
