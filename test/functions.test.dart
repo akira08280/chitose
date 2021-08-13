@@ -261,4 +261,61 @@ void main() {
       expect(deepEq([1, 2, 3].product(9), [[]]), false);
     });
   });
+
+  group('tails()', () {
+    test('This test is for the tails function by an simple type list.', () {
+      List<int> orig = [1, 2, 3, 4, 5];
+      List<List<int>> expectRightTails = [
+        [1, 2, 3, 4, 5],
+        [2, 3, 4, 5],
+        [3, 4, 5],
+        [4, 5],
+        [5],
+        []
+      ];
+      List<List<int>> expectDifferentTails = [
+        [1, 2, 3, 4, 5],
+        [2, 3, 4, 5],
+        [3, 4, 5],
+        [4, 5],
+        [6],
+        []
+      ];
+      List<List<int>> actualTails = orig.tails();
+
+      expect(eq(orig, []), false);
+      expect(eq(orig, null), false);
+      expect(eq(orig, [5, 4, 3, 2, 1]), false);
+      expect(eq(orig, [1, 2, 3, 4, 5]), true);
+      expect(deepEq(actualTails, expectRightTails), true);
+      expect(deepEq(actualTails, expectDifferentTails), false);
+    });
+    test('This test is for the tails function by an multiple type list.', () {
+      List<dynamic> orig = [1, 'a', 3, 'b', 5];
+      List<List<dynamic>> expectRightTails = [
+        [1, 'a', 3, 'b', 5],
+        ['a', 3, 'b', 5],
+        [3, 'b', 5],
+        ['b', 5],
+        [5],
+        []
+      ];
+      List<List<dynamic>> expectDifferentTails = [
+        [1, 'a', 3, 'b', 5],
+        ['a', 3, 'b', 5],
+        [3, 'b', 5],
+        ['b', 5],
+        [6],
+        []
+      ];
+      List<List<dynamic>> actualTails = orig.tails();
+
+      expect(eq(orig, []), false);
+      expect(eq(orig, null), false);
+      expect(eq(orig, [5, 'b', 3, 'a', 1]), false);
+      expect(eq(orig, [1, 'a', 3, 'b', 5]), true);
+      expect(deepEq(actualTails, expectRightTails), true);
+      expect(deepEq(actualTails, expectDifferentTails), false);
+    });
+  });
 }

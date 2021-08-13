@@ -138,4 +138,20 @@ extension ListExtensions<T> on List<T> {
         .expand((e) => e)
         .toList();
   }
+
+  /// TODO Comment
+  List<List<T>> tails() {
+    return this._tails([...this]);
+  }
+
+  List<List<T>> _tails(List<T> xss) {
+    if (xss.length == 0) {
+      return [[]];
+    }
+    List<T> xs = xss.sublist(1);
+    return [
+      ...[xss],
+      ..._tails(xs)
+    ];
+  }
 }

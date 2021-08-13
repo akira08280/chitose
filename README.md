@@ -2,13 +2,14 @@
 
 Chitose is a package that makes it easy to handle the List of Dart Core, which is implemented inspired by Programming Haskell. It generates permutation, product, sublist of arrays. The origin of the name of Chitose is a surf point located in the south of Chiba prefecture in Japan, which is one of the author's favorite locations.
 
-## USAGE
+## Usage
 
 You can easily use the Chitose library by designated the following import statement.
 
 ```dart
 import 'package:chitose/chitose.dart';
 ```
+
 ## Examples
 
 ### How to generate all sublists of a list
