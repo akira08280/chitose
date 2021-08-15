@@ -105,8 +105,8 @@ extension ListExtensions<T> on List<T> {
     if (xss.length == 0) {
       return [[]];
     }
-    T x = xss[0];
-    List<T> xs = xss.sublist(1);
+    final T x = xss[0];
+    final List<T> xs = xss.sublist(1);
     return _perms(xs).map((e) => e.interleave(x)).expand((e) => e).toList();
   }
 
@@ -139,7 +139,17 @@ extension ListExtensions<T> on List<T> {
         .toList();
   }
 
-  /// TODO Comment
+  /// Returns all the rest of the elements by deleting the first element of the list in order.
+  ///
+  /// ```dart
+  /// [1, 2, 3].tails();
+  /// [[1, 2, 3], [2, 3], [3], []]
+  /// ```
+  ///
+  /// ```dart
+  /// [].tails();
+  /// [[]]
+  /// ```
   List<List<T>> tails() {
     return this._tails([...this]);
   }
@@ -148,10 +158,41 @@ extension ListExtensions<T> on List<T> {
     if (xss.length == 0) {
       return [[]];
     }
-    List<T> xs = xss.sublist(1);
+    final List<T> xs = xss.sublist(1);
     return [
       ...[xss],
       ..._tails(xs)
     ];
+  }
+
+  /// Returns the combinations of K distinct lists selected from the N elements of a list.
+  ///
+  /// ```dart
+  /// [1, 2, 3, 4, 5].combs(3);
+  /// [[1, 2, 3], [1, 2, 4], [1, 2, 5], [1, 3, 4], [1, 3, 5], [1, 4, 5], [2, 3, 4], [2, 3, 5], [2, 4, 5], [3, 4, 5]]
+  /// ```
+  ///
+  /// ```dart
+  /// [1, 2, 3, 4, 5].combs(5);
+  /// [[1, 2, 3, 4, 5]]
+  /// ```
+  List<List<T>> combs(int n) {
+    return _combs(n, [...this]);
+  }
+
+  List<List<T>> _combs(int n, List<T> xss) {
+    if (n <= 0) {
+      return [[]];
+    }
+    final List<List<T>> pool = [];
+    for (List<T> xs in xss.tails()) {
+      if (xs.length > 0) {
+        final T x = xs.removeAt(0);
+        for (List<T> yss in _combs(n - 1, xs)) {
+          pool.add([x] + yss);
+        }
+      }
+    }
+    return pool;
   }
 }

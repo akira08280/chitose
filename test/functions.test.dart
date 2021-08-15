@@ -318,4 +318,73 @@ void main() {
       expect(deepEq(actualTails, expectDifferentTails), false);
     });
   });
+
+  group('combs()', () {
+    test('This test is for the combs function.', () {
+      List<int> orig = [1, 2, 3, 4, 5];
+      List<List<int>> expect1 = [
+        [1],
+        [2],
+        [3],
+        [4],
+        [5]
+      ];
+      List<List<int>> expect2 = [
+        [1, 2],
+        [1, 3],
+        [1, 4],
+        [1, 5],
+        [2, 3],
+        [2, 4],
+        [2, 5],
+        [3, 4],
+        [3, 5],
+        [4, 5]
+      ];
+      List<List<int>> expect3 = [
+        [1, 2, 3],
+        [1, 2, 4],
+        [1, 2, 5],
+        [1, 3, 4],
+        [1, 3, 5],
+        [1, 4, 5],
+        [2, 3, 4],
+        [2, 3, 5],
+        [2, 4, 5],
+        [3, 4, 5]
+      ];
+      List<List<int>> expect4 = [
+        [1, 2, 3, 4],
+        [1, 2, 3, 5],
+        [1, 2, 4, 5],
+        [1, 3, 4, 5],
+        [2, 3, 4, 5]
+      ];
+      List<List<int>> expect5 = [
+        [1, 2, 3, 4, 5]
+      ];
+      List<List<int>> result1 = orig.combs(1);
+      List<List<int>> result2 = orig.combs(2);
+      List<List<int>> result3 = orig.combs(3);
+      List<List<int>> result4 = orig.combs(4);
+      List<List<int>> result5 = orig.combs(5);
+
+      expect(eq(orig, []), false);
+      expect(eq(orig, null), false);
+      expect(eq(orig, [5, 4, 3, 2, 1]), false);
+      expect(eq(orig, [1, 2, 3, 4, 5]), true);
+      expect(deepEq(result1, expect1), true);
+      expect(deepEq(result2, expect2), true);
+      expect(deepEq(result3, expect3), true);
+      expect(deepEq(result4, expect4), true);
+      expect(deepEq(result5, expect5), true);
+    });
+    test('This test is the check for when an argument is under 0.', () {
+      expect(deepEq([1, 2, 3].combs(0), [[]]), true);
+      expect(deepEq([1, 2, 3].combs(-1), [[]]), true);
+      expect(deepEq([1, 2, 3].combs(-9), [[]]), true);
+      expect(deepEq([1, 2, 3].combs(1), [[]]), false);
+      expect(deepEq([1, 2, 3].combs(3), [[]]), false);
+    });
+  });
 }

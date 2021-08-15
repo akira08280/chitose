@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the subs method from the ListExtensions extension, for the Dart programming language.">
-  <title>subs method - ListExtensions extension - collection library - Dart API</title>
+  <meta name="description" content="API docs for the tails method from the ListExtensions extension, for the Dart programming language.">
+  <title>tails method - ListExtensions extension - collection library - Dart API</title>
 
 
   
@@ -32,9 +32,9 @@
     <li><a href="../../index.html">chitose</a></li>
     <li><a href="../../collection/collection-library.html">collection</a></li>
     <li><a href="../../collection/ListExtensions.html">ListExtensions<span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></a></li>
-    <li class="self-crumb">subs method</li>
+    <li class="self-crumb">tails method</li>
   </ol>
-  <div class="self-name">subs</div>
+  <div class="self-name">tails</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
@@ -45,7 +45,7 @@
 
   <div id="dartdoc-main-content" class="main-content">
       <div>
-<h1><span class="kind-method">subs</span> method 
+<h1><span class="kind-method">tails</span> method 
     <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
@@ -53,25 +53,19 @@
       
 
 <span class="returntype"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>&gt;</span></span>
-<span class="name ">subs</span>(<wbr>)
+<span class="name ">tails</span>(<wbr>)
 
       
 
     </section>
     
 <section class="desc markdown">
-  <p>Returns the all partial list of the list.</p>
-<pre class="language-dart"><code class="language-dart">[].subs();
+  <p>Returns all the rest of the elements by deleting the first element of the list in order.</p>
+<pre class="language-dart"><code class="language-dart">[1, 2, 3].tails();
+[[1, 2, 3], [2, 3], [3], []]
+</code></pre>
+<pre class="language-dart"><code class="language-dart">[].tails();
 [[]]
-</code></pre>
-<pre class="language-dart"><code class="language-dart">[3].subs();
-[[], [3]]
-</code></pre>
-<pre class="language-dart"><code class="language-dart">[2, 3].subs();
-[[], [3], [2], [2, 3]]
-</code></pre>
-<pre class="language-dart"><code class="language-dart">[1, 2, 3].subs();
-[[], [3], [2], [2, 3], [1], [1, 3], [1, 2], [1, 2, 3]]
 </code></pre>
 </section>
 
@@ -79,8 +73,8 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">List&lt;List&lt;T&gt;&gt; subs() {
-  return this._subs([...this]);
+  <pre class="language-dart"><code class="language-dart">List&lt;List&lt;T&gt;&gt; tails() {
+  return this._tails([...this]);
 }</code></pre>
 </section>
 
@@ -98,7 +92,7 @@
   <li><a href="../../index.html">chitose</a></li>
   <li><a href="../../collection/collection-library.html">collection</a></li>
   <li><a href="../../collection/ListExtensions.html">ListExtensions<span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></a></li>
-  <li class="self-crumb">subs method</li>
+  <li class="self-crumb">tails method</li>
 </ol>
 
 
