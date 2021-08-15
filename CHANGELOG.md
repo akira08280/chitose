@@ -1,3 +1,7 @@
+## 1.1.0
+
+* Add the combination function, which generates the combinations of K distinct lists selected from the N elements of a list.
+
 ## 1.0.1
 
 * Applied Dart Format.
