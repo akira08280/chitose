@@ -1,13 +1,13 @@
 name: chitose
-version: 1.1.0
+version: 2.0.0
 description: >-
   Chitose is a package that makes it easy to handle Dart Lists, which are implemented inspired by Programming Haskell.
 homepage: https://github.com/akira08280/chitose
 documentation:
 environment:
-  sdk: '>=2.13.0 <3.0.0'
-dev_dependencies: 
-  lints: ^1.0.1
+  sdk: '>=3.0.0 <4.0.0'
+dev_dependencies:
+  lints: ^3.0.0
   test: ^1.17.10
-dependencies: 
+dependencies:
   collection: ^1.15.0
